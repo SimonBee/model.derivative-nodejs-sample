@@ -1021,6 +1021,7 @@ function initializeViewer(urn) {
             function () {
                 MyVars.viewer.start(); // this would be needed if we also want to load extensions
                 loadDocument(MyVars.viewer, options.document);
+		MyVars.viewer.setBackgroundColor(0.0,0.0,0.0,1.0,1.0,1.0);
                 addSelectionListener(MyVars.viewer);
             }
         );
