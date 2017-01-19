@@ -1026,7 +1026,6 @@ function initializeViewer(urn) {
         );
     }
     if (MyVars.viewer){
-    MyVars.viewer.setBackgroundColor(0.0,0.0,0.0,1.0,1.0,1.0);
 	console.log("setting background color");
     } else {
 	console.log("hmmm that didn't work");
