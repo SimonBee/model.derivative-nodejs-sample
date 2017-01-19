@@ -1003,7 +1003,7 @@ function cleanupViewer() {
 function initializeViewer(urn) {
     cleanupViewer();
 
-    console.log("Launching Autodesk Viewer for: " + urn);
+    console.log("Launching Simon's Autodesk Viewer for: " + urn);
 
     var options = {
         'document': 'urn:' + urn,
