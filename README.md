@@ -30,7 +30,7 @@ Install [NodeJS](https://nodejs.org).
 
 Clone this project or download it. It's recommended to install [GitHub desktop](https://desktop.github.com/). To clone it via command line, use the following (<b>Terminal</b> on MacOSX/Linux, <b>Git Shell</b> on Windows):
 
-    git clone https://github.com/autodesk-forge/model.derivative-nodejs-sample
+    git clone https://github.com/SimonBee/model.derivative-nodejs-sample.git
 
 To run it, install the required packages, set the enviroment variables with your client ID & secret and finally start it. Via command line, navigate to the folder where this repository was cloned and use the following:
 
