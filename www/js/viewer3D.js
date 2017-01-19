@@ -50846,6 +50846,9 @@ function Viewer3DImpl(thecanvas, theapi)
         var params = av.InitParametersSetting;
         params.canvas=canvas;
         params.devicePixelRatio=dpr;
+
+	//SBEE: Set alpha to true ... might work!
+	params.alpha = true;
         
         var renderer = new avp.FireflyWebGLRenderer(params);
 
