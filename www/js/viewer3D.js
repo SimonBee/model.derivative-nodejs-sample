@@ -10968,9 +10968,11 @@ avp.Autocam.ViewCube = function (tagId, autocam, cubeContainer, localizeResource
 
         if (cam.renderer.toUpperCase() === 'CANVAS'){
             self.renderer = new THREE.CanvasRenderer();
+	    console.log("Canvas renderer without alpha background?");
 
         }else if (cam.renderer.toUpperCase() === 'WEBGL'){
             self.renderer = new avp.FireflyWebGLRenderer({ alpha: true, antialias:true });
+	    console.log("WEBGL renderer with alpha background?");
 
         }else {
             avp.logger.warn("Incorrect use of Autocam.renderer property");
