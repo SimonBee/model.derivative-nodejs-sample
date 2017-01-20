@@ -37245,7 +37245,7 @@ Autodesk.Viewing.Private.Preferences = function (viewer, options) {
     viewer.addEventListener(av.VIEWER_INITIALIZED, function (event) {
 	console.log("Inside initialize viewer callback");
         var black = new THREE.Color(0, 0, 0);	
-	viewer.impl.glrender().setClearColor(black, 0);
+	viewer.impl.glrenderer().setClearColor(black, 0);
     });
     
     // TODO: callbacks should be array, not single
