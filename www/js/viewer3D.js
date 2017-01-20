@@ -48000,7 +48000,7 @@ var stringToDOM = avp.stringToDOM = function(str) {
                 viewer.centerToolBar();
             }
         });
-        this.addEventListener(av.VIEWER_INITIALIZED_EVENT, function (event) {
+        this.addEventListener(av.VIEWER_INITIALIZED, function (event) {
 
 	    console.log("Viewer Initialized");
             var black = new THREE.Color(0, 0, 0);
