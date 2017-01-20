@@ -28107,6 +28107,11 @@ av.InitParametersSetting = {
     devicePixelRatio: null
 };
 
+this.addEventListener(av.VIEWER_INITIALIZED, function (event) {
+    console.log("Viewer Initialized");
+    var black = new THREE.Color(0, 0, 0);
+    viewer.impl.glrender().setClearColor(black,0);
+});
 
 //progress state
 av.ProgressState = {
@@ -47999,13 +48004,6 @@ var stringToDOM = avp.stringToDOM = function(str) {
             if (viewer.centerToolBar) {
                 viewer.centerToolBar();
             }
-        });
-        this.addEventListener(av.VIEWER_INITIALIZED, function (event) {
-
-	    console.log("Viewer Initialized");
-            var black = new THREE.Color(0, 0, 0);
-	    viewer.impl.glrender().setClearColor(black,0);
-
         });
 
         this.addEventListener(av.NAVIGATION_MODE_CHANGED_EVENT, function (event) {
