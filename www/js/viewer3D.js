@@ -37243,6 +37243,9 @@ Autodesk.Viewing.Private.Preferences = function (viewer, options) {
 
 
     console.log("I got here ........");
+    viewer.addEventListener(av.INITIALIZE_VIEWER, function (event) {
+	console.log("Inside initialize viewer callback");
+    });
     
     // TODO: callbacks should be array, not single
     // Would need to deal with issue of registering same callback twice
