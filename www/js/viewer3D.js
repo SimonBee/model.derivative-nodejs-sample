@@ -24031,17 +24031,17 @@ function RenderContext() {
                     var white = new THREE.Color(1, 1, 1);
                     var black = new THREE.Color(0, 0, 0);
                     if (_clearColor.equals(white)) {
-                        _renderer.setClearColor(black, 1.0);
+                        _renderer.setClearColor(black, 0.0);
                     }
                     else if (_clearColor.equals(black)) {
-                        _renderer.setClearColor(white, 1.0);
+                        _renderer.setClearColor(white, 0.0);
                     }
                     else {
-                        _renderer.setClearColor(_clearColor, 1.0);
+                        _renderer.setClearColor(_clearColor, 0.0);
                     }
                 }
                 else {
-                    _renderer.setClearColor(_clearColor, 1.0);
+                    _renderer.setClearColor(_clearColor, 0.0);
                 }
                 _renderer.clearTarget(_colorTarget, true, true, false); //clear color and depth buffer
             } else {
@@ -24057,7 +24057,7 @@ function RenderContext() {
 
             //Clear the id buffer(s)
             for (var i=0; i<_idTargets.length; i++) {
-                _renderer.setClearColor(_white, 1.0);
+                _renderer.setClearColor(_white, 0.0);
                 _renderer.clearTarget(_idTargets[i], true, false, false);
             }
         }
