@@ -37244,8 +37244,7 @@ Autodesk.Viewing.Private.Preferences = function (viewer, options) {
 
     viewer.addEventListener(av.VIEWER_INITIALIZED, function (event) {
 	console.log("Inside initialize viewer callback");
-        var black = new THREE.Color(0, 0, 0);	
-	viewer.impl.glrenderer().setClearColor(black, 0);
+	viewer.impl.glrenderer().setClearColor(0x000000, 0);
     });
     
     // TODO: callbacks should be array, not single
@@ -43104,7 +43103,7 @@ av.UnifiedCamera = UnifiedCamera;
      */
     Viewer3D.prototype.setBackgroundColor = function(red, green, blue, red2, green2, blue2)
     {
-        this.impl.setClearColors(red, green, blue, red2, green2, blue2);
+//        this.impl.setClearColors(red, green, blue, red2, green2, blue2);
     };
 
     /**
