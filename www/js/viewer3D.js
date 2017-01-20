@@ -28099,7 +28099,7 @@ var ENABLE_TRACE = avp.ENABLE_TRACE || true;
 av.InitParametersSetting = {
     canvas: null,
     antialias: false,
-    alpha: false,
+    alpha: true,
     premultipliedAlpha: false,
     preserveDrawingBuffer: true,
     stencil: false,
@@ -47999,6 +47999,13 @@ var stringToDOM = avp.stringToDOM = function(str) {
             if (viewer.centerToolBar) {
                 viewer.centerToolBar();
             }
+        });
+        this.addEventListener(av.VIEWER_INITIALIZED_EVENT, function (event) {
+
+	    console.log("Viewer Initialized");
+            var black = new THREE.Color(0, 0, 0);
+	    viewer.impl.glrender().setClearColor(black,0);
+
         });
 
         this.addEventListener(av.NAVIGATION_MODE_CHANGED_EVENT, function (event) {
