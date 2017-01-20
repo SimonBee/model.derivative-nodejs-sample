@@ -28099,7 +28099,7 @@ var ENABLE_TRACE = avp.ENABLE_TRACE || true;
 av.InitParametersSetting = {
     canvas: null,
     antialias: false,
-    alpha: false,
+    alpha: true,
     premultipliedAlpha: false,
     preserveDrawingBuffer: true,
     stencil: false,
@@ -37241,6 +37241,9 @@ Autodesk.Viewing.Private.Preferences = function (viewer, options) {
         useLocalStorage = options.localStorage && isLocalStorageSupported(),
         that = this;
 
+
+    console.log("I got here ........");
+    
     // TODO: callbacks should be array, not single
     // Would need to deal with issue of registering same callback twice
     //
