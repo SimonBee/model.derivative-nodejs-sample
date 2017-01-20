@@ -37243,7 +37243,7 @@ Autodesk.Viewing.Private.Preferences = function (viewer, options) {
 
 
     console.log("I got here ........");
-    viewer.addEventListener(av.INITIALIZE_VIEWER, function (event) {
+    viewer.addEventListener(av.VIEWER_INITIALIZED, function (event) {
 	console.log("Inside initialize viewer callback");
     });
     
