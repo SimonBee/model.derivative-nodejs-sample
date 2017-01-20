@@ -28099,7 +28099,7 @@ var ENABLE_TRACE = avp.ENABLE_TRACE || true;
 av.InitParametersSetting = {
     canvas: null,
     antialias: false,
-    alpha: true,
+    alpha: false,
     premultipliedAlpha: false,
     preserveDrawingBuffer: true,
     stencil: false,
@@ -28107,11 +28107,6 @@ av.InitParametersSetting = {
     devicePixelRatio: null
 };
 
-this.addEventListener(av.VIEWER_INITIALIZED, function (event) {
-    console.log("Viewer Initialized");
-    var black = new THREE.Color(0, 0, 0);
-    viewer.impl.glrender().setClearColor(black,0);
-});
 
 //progress state
 av.ProgressState = {
