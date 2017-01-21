@@ -70,7 +70,7 @@ Autodesk.Viewing.Private.initializeLegacyNamespaces = function(worker) {
 
     //SBEE: This is a background shader. Does this mean that this is where this is initialised? In which case
     // Can I Dump it?
-    avs.BackgroundShader = WGS.BackgroundShader;
+//    avs.BackgroundShader = WGS.BackgroundShader;
 
     avs.BlendShader = WGS.BlendShader;
 
