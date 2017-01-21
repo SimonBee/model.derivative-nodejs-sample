@@ -7514,8 +7514,8 @@ var WGS =
 					_gl.enable(_gl.BLEND);
 			                _gl.blendEquation(_gl.FUNC_ADD);
 			               //SBEE
-					_gl.blendFunc(_gl.ONE, _gl.ONE_MINUS_SRC_ALPHA);
-//					_gl.blendFunc(_gl.SRC_ALPHA, _gl.ONE_MINUS_SRC_ALPHA);
+//			                 _gl.blendFunc(_gl.ONE, _gl.ONE_MINUS_SRC_ALPHA);
+					_gl.blendFunc(_gl.SRC_ALPHA, _gl.ONE_MINUS_SRC_ALPHA);
 
 					_gl.viewport(_viewportX, _viewportY, _viewportWidth, _viewportHeight);
 
