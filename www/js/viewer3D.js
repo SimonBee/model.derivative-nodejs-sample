@@ -6,8 +6,7 @@ function getGlobal() {
                 ? self
                 : global;
 }
-    glClear: function(mask)
-    {
+    function glClear(mask) {
         if (mask == 0x00004000)
         {
             var v = GLctx.getParameter(GLctx.COLOR_WRITEMASK);
