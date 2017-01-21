@@ -68,6 +68,8 @@ Autodesk.Viewing.Private.initializeLegacyNamespaces = function(worker) {
     avs.ThemingFragmentDeclaration = WGS.ThemingFragmentDeclaration;
     avs.ThemingFragmentShaderChunk = WGS.ThemingFragmentShaderChunk;
 
+    //SBEE: This is a background shader. Does this mean that this is where this is initialised? In which case
+    // Can I Dump it?
     avs.BackgroundShader = WGS.BackgroundShader;
 
     avs.BlendShader = WGS.BlendShader;
@@ -23959,6 +23961,8 @@ function RenderContext() {
         _blendPass = new avs.LmvShaderPass(avs.BlendShader);
         setNoDepthNoBlend(_blendPass);
 
+	//SBEE : here's a clearPass - what if we just don't do this?
+	// I guess the other option is to somehow embed alpah into the shader
         _clearPass = new avs.LmvShaderPass(avs.BackgroundShader);
         setNoDepthNoBlend(_clearPass);
 

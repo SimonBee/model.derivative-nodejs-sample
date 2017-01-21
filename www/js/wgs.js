@@ -125,6 +125,7 @@ var WGS =
 
 
 
+    //SBEE : Can I make these v3 a v4?
 	var BackgroundShader = {
 
 	    uniforms: {
@@ -1646,7 +1647,9 @@ var WGS =
 	            _renderer.clearTarget(this.outTarget, false, true, false);
 	        } else
 	        {
-	            _renderer.setClearColor(_clearColor, 1.0);
+		    // SBEE : change the clear Color here to 0.0 alpha :)
+	            //_renderer.setClearColor(_clearColor, 1.0);
+	            _renderer.setClearColor(_clearColor, 0.0);
 	            _renderer.clearTarget(this.outTarget, true, true, false);
 	        }
 
@@ -1723,6 +1726,7 @@ var WGS =
 	    _drawPass.material.blending = THREE.NoBlending;
 	    _drawPass.material.depthTest = true;
 	    _drawPass.material.depthWrite = false;
+	    //SBEE: WTF?!!?!
 	    // Put the screen-filling quad at the back of the view volume.
 	    // This is slightly dangerous, it could go "too far", so we put it at
 	    // -0.999999 to keep it from being on the razor's edge.
