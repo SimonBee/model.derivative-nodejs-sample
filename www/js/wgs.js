@@ -1629,7 +1629,8 @@ var WGS =
 	    this.toggleEnvMapBackground = function (value) {
 
 	        _envMapBg = value;
-	        _clearPass.uniforms.envMapBackground.value = value;
+		//SBEE
+//	        _clearPass.uniforms.envMapBackground.value = value;
 	    };
 
 	    this.postprocess = function (camera) {
@@ -1736,7 +1737,8 @@ var WGS =
 	    if (params.clearPass) {
 	        _clearPass = params.clearPass;
 	    } else {
-	        _clearPass = new ShaderPass(BackgroundShader);
+		//SBEE
+//	        _clearPass = new ShaderPass(BackgroundShader);
 	        _clearPass.material.blending = THREE.NoBlending;
 	        _clearPass.material.depthWrite = false;
 	        _clearPass.material.depthTest = false;
@@ -7514,7 +7516,6 @@ var WGS =
 					_gl.enable(_gl.BLEND);
 			                _gl.blendEquation(_gl.FUNC_ADD);
 			               //SBEE
-//			                 _gl.blendFunc(_gl.ONE, _gl.ONE_MINUS_SRC_ALPHA);
 					_gl.blendFunc(_gl.SRC_ALPHA, _gl.ONE_MINUS_SRC_ALPHA);
 
 					_gl.viewport(_viewportX, _viewportY, _viewportWidth, _viewportHeight);
