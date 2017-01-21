@@ -6,7 +6,17 @@ function getGlobal() {
                 ? self
                 : global;
 }
-
+    glClear: function(mask)
+    {
+        if (mask == 0x00004000)
+        {
+            var v = GLctx.getParameter(GLctx.COLOR_WRITEMASK);
+            if (!v[0] && !v[1] && !v[2] && v[3])
+                // We are trying to clear alpha only -- skip.
+                return;
+        }
+        GLctx.clear(mask);
+    }
 /**
  * Create namespace
  * @param {string} s - namespace (e.g. 'Autodesk.Viewing')
@@ -70,7 +80,7 @@ Autodesk.Viewing.Private.initializeLegacyNamespaces = function(worker) {
 
     //SBEE: This is a background shader. Does this mean that this is where this is initialised? In which case
     // Can I Dump it?
-//    avs.BackgroundShader = WGS.BackgroundShader;
+    avs.BackgroundShader = WGS.BackgroundShader;
 
     avs.BlendShader = WGS.BlendShader;
 
@@ -453,6 +463,8 @@ var touchStartToClick = av.touchStartToClick = function(e) {
     if (!global.performance)
         global.performance = Date;
 })();
+
+
 
 // Polyfill for IE and Safari
 // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger
