@@ -7492,8 +7492,9 @@ var WGS =
 							r *= a;g *= a;b *= a;
 
 					}
-
-					_gl.clearColor(r, g, b, a);
+			    //SBEE
+			    _gl.clearColor(0,0,0,0);
+//					_gl.clearColor(r, g, b, a);
 
 			};
 
@@ -7518,7 +7519,8 @@ var WGS =
 
 					_gl.viewport(_viewportX, _viewportY, _viewportWidth, _viewportHeight);
 
-					glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearAlpha);
+//					glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearAlpha);
+			    glClearColor(0,0,0,0);
 
 			};
 
@@ -7831,7 +7833,8 @@ var WGS =
 					_clearAlpha = 0;
 //					_clearAlpha = alpha !== undefined ? alpha : 1;
 
-					glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearAlpha);
+			    glClearColor(0,0,0,0);
+//					glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearAlpha);
 
 			};
 
@@ -7846,7 +7849,8 @@ var WGS =
 //					_clearAlpha = alpha;
 					_clearAlpha = 0;
 
-					glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearAlpha);
+			    glClearColor(0,0,0,0);
+//					glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearAlpha);
 
 			};
 
@@ -7864,8 +7868,7 @@ var WGS =
 
 			this.clearColor = function () {
 
-			    //SBEE
-					//_gl.clear(_gl.COLOR_BUFFER_BIT);
+					_gl.clear(_gl.COLOR_BUFFER_BIT);
 
 			};
 
