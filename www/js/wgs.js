@@ -7826,8 +7826,10 @@ var WGS =
 
 			this.setClearColor = function (color, alpha) {
 
-					_clearColor.set(color);
-					_clearAlpha = alpha !== undefined ? alpha : 1;
+			    _clearColor.set(color);
+			    //SBEE
+					_clearAlpha = 0;
+//					_clearAlpha = alpha !== undefined ? alpha : 1;
 
 					glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearAlpha);
 
@@ -7840,8 +7842,9 @@ var WGS =
 			};
 
 			this.setClearAlpha = function (alpha) {
-
-					_clearAlpha = alpha;
+			    //SBEE
+//					_clearAlpha = alpha;
+					_clearAlpha = 0;
 
 					glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearAlpha);
 
