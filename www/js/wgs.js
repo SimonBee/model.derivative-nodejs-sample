@@ -7864,7 +7864,8 @@ var WGS =
 
 			this.clearColor = function () {
 
-					_gl.clear(_gl.COLOR_BUFFER_BIT);
+			    //SBEE
+					//_gl.clear(_gl.COLOR_BUFFER_BIT);
 
 			};
 
