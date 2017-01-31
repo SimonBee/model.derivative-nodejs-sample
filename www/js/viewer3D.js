@@ -6,6 +6,7 @@ function getGlobal() {
                 ? self
                 : global;
 }
+
 /**
  * Create namespace
  * @param {string} s - namespace (e.g. 'Autodesk.Viewing')
@@ -67,8 +68,6 @@ Autodesk.Viewing.Private.initializeLegacyNamespaces = function(worker) {
     avs.ThemingFragmentDeclaration = WGS.ThemingFragmentDeclaration;
     avs.ThemingFragmentShaderChunk = WGS.ThemingFragmentShaderChunk;
 
-    //SBEE: This is a background shader. Does this mean that this is where this is initialised? In which case
-    // Can I Dump it?
     avs.BackgroundShader = WGS.BackgroundShader;
 
     avs.BlendShader = WGS.BlendShader;
@@ -452,8 +451,6 @@ var touchStartToClick = av.touchStartToClick = function(e) {
     if (!global.performance)
         global.performance = Date;
 })();
-
-
 
 // Polyfill for IE and Safari
 // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger
@@ -23962,8 +23959,6 @@ function RenderContext() {
         _blendPass = new avs.LmvShaderPass(avs.BlendShader);
         setNoDepthNoBlend(_blendPass);
 
-	//SBEE : here's a clearPass - what if we just don't do this?
-	// I guess the other option is to somehow embed alpah into the shader
         _clearPass = new avs.LmvShaderPass(avs.BackgroundShader);
         setNoDepthNoBlend(_clearPass);
 
@@ -24036,17 +24031,17 @@ function RenderContext() {
                     var white = new THREE.Color(1, 1, 1);
                     var black = new THREE.Color(0, 0, 0);
                     if (_clearColor.equals(white)) {
-                        _renderer.setClearColor(black, 0.0);
+                        _renderer.setClearColor(black, 1.0);
                     }
                     else if (_clearColor.equals(black)) {
-                        _renderer.setClearColor(white, 0.0);
+                        _renderer.setClearColor(white, 1.0);
                     }
                     else {
-                        _renderer.setClearColor(_clearColor, 0.0);
+                        _renderer.setClearColor(_clearColor, 1.0);
                     }
                 }
                 else {
-                    _renderer.setClearColor(_clearColor, 0.0);
+                    _renderer.setClearColor(_clearColor, 1.0);
                 }
                 _renderer.clearTarget(_colorTarget, true, true, false); //clear color and depth buffer
             } else {
@@ -24062,7 +24057,7 @@ function RenderContext() {
 
             //Clear the id buffer(s)
             for (var i=0; i<_idTargets.length; i++) {
-                _renderer.setClearColor(_white, 0.0);
+                _renderer.setClearColor(_white, 1.0);
                 _renderer.clearTarget(_idTargets[i], true, false, false);
             }
         }
@@ -28104,7 +28099,7 @@ var ENABLE_TRACE = avp.ENABLE_TRACE || true;
 av.InitParametersSetting = {
     canvas: null,
     antialias: false,
-    alpha: true,
+    alpha: false,
     premultipliedAlpha: false,
     preserveDrawingBuffer: true,
     stencil: false,
@@ -28348,7 +28343,6 @@ function Viewer3DImpl(thecanvas, theapi)
         var params = av.InitParametersSetting;
         params.canvas=canvas;
         params.devicePixelRatio=dpr;
-	params.alpha = true;
 
         var renderer = new avp.FireflyWebGLRenderer(params);
 
@@ -37247,12 +37241,6 @@ Autodesk.Viewing.Private.Preferences = function (viewer, options) {
         useLocalStorage = options.localStorage && isLocalStorageSupported(),
         that = this;
 
-
-    viewer.addEventListener(av.VIEWER_INITIALIZED, function (event) {
-	console.log("Inside initialize viewer callback");
-	viewer.impl.glrenderer().setClearColor(0x000000, 0);
-    });
-    
     // TODO: callbacks should be array, not single
     // Would need to deal with issue of registering same callback twice
     //
@@ -43109,7 +43097,7 @@ av.UnifiedCamera = UnifiedCamera;
      */
     Viewer3D.prototype.setBackgroundColor = function(red, green, blue, red2, green2, blue2)
     {
-//        this.impl.setClearColors(red, green, blue, red2, green2, blue2);
+        this.impl.setClearColors(red, green, blue, red2, green2, blue2);
     };
 
     /**

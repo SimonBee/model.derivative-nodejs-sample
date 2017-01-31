@@ -125,7 +125,6 @@ var WGS =
 
 
 
-    //SBEE : Can I make these v3 a v4?
 	var BackgroundShader = {
 
 	    uniforms: {
@@ -1629,8 +1628,7 @@ var WGS =
 	    this.toggleEnvMapBackground = function (value) {
 
 	        _envMapBg = value;
-		//SBEE
-//	        _clearPass.uniforms.envMapBackground.value = value;
+	        _clearPass.uniforms.envMapBackground.value = value;
 	    };
 
 	    this.postprocess = function (camera) {
@@ -1648,9 +1646,7 @@ var WGS =
 	            _renderer.clearTarget(this.outTarget, false, true, false);
 	        } else
 	        {
-		    // SBEE : change the clear Color here to 0.0 alpha :)
-	            //_renderer.setClearColor(_clearColor, 1.0);
-	            _renderer.setClearColor(_clearColor, 0.0);
+	            _renderer.setClearColor(_clearColor, 1.0);
 	            _renderer.clearTarget(this.outTarget, true, true, false);
 	        }
 
@@ -1727,7 +1723,6 @@ var WGS =
 	    _drawPass.material.blending = THREE.NoBlending;
 	    _drawPass.material.depthTest = true;
 	    _drawPass.material.depthWrite = false;
-	    //SBEE: WTF?!!?!
 	    // Put the screen-filling quad at the back of the view volume.
 	    // This is slightly dangerous, it could go "too far", so we put it at
 	    // -0.999999 to keep it from being on the razor's edge.
@@ -1737,8 +1732,7 @@ var WGS =
 	    if (params.clearPass) {
 	        _clearPass = params.clearPass;
 	    } else {
-		//SBEE
-//	        _clearPass = new ShaderPass(BackgroundShader);
+	        _clearPass = new ShaderPass(BackgroundShader);
 	        _clearPass.material.blending = THREE.NoBlending;
 	        _clearPass.material.depthWrite = false;
 	        _clearPass.material.depthTest = false;
@@ -7494,9 +7488,8 @@ var WGS =
 							r *= a;g *= a;b *= a;
 
 					}
-			    //SBEE
-			    _gl.clearColor(0,0,0,0);
-//					_gl.clearColor(r, g, b, a);
+
+					_gl.clearColor(r, g, b, a);
 
 			};
 
@@ -7514,14 +7507,12 @@ var WGS =
 					_gl.enable(_gl.CULL_FACE);
 
 					_gl.enable(_gl.BLEND);
-			                _gl.blendEquation(_gl.FUNC_ADD);
-			               //SBEE
+					_gl.blendEquation(_gl.FUNC_ADD);
 					_gl.blendFunc(_gl.SRC_ALPHA, _gl.ONE_MINUS_SRC_ALPHA);
 
 					_gl.viewport(_viewportX, _viewportY, _viewportWidth, _viewportHeight);
 
-//					glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearAlpha);
-			    glClearColor(0,0,0,0);
+					glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearAlpha);
 
 			};
 
@@ -7829,13 +7820,10 @@ var WGS =
 
 			this.setClearColor = function (color, alpha) {
 
-			    _clearColor.set(color);
-			    //SBEE
-					_clearAlpha = 0;
-//					_clearAlpha = alpha !== undefined ? alpha : 1;
+					_clearColor.set(color);
+					_clearAlpha = alpha !== undefined ? alpha : 1;
 
-			    glClearColor(0,0,0,0);
-//					glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearAlpha);
+					glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearAlpha);
 
 			};
 
@@ -7846,12 +7834,10 @@ var WGS =
 			};
 
 			this.setClearAlpha = function (alpha) {
-			    //SBEE
-//					_clearAlpha = alpha;
-					_clearAlpha = 0;
 
-			    glClearColor(0,0,0,0);
-//					glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearAlpha);
+					_clearAlpha = alpha;
+
+					glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearAlpha);
 
 			};
 
